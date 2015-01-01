@@ -2,8 +2,15 @@
 <html prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#">
   <head>
     <meta charset="utf-8">
-      {{ post.title }}
+    <title>
+      {% if is_login %}Login
+      {% elif is_home %}{{ site.author }}
+      {% elif is_tag %}{{ tag }}
+      {% elif post %}{{ post.title }}
+      {% endif %}
+      | {{ site.name }}
     </title>
+
     {{ header_meta }}
 
     <link href="{{ assets('css/style.css') }}" rel="stylesheet" />
@@ -31,11 +38,11 @@
     <div class="wrap">
       <header class="header">
         <div class="avatar">
-          <a href="/"><img src="{{ site.avatar }}" class="img-circle" alt="{{ site.author }}" /></a>
-        </div>
+<!--           <a href="/"><img src="{{ site.avatar }}" class="img-circle" alt="{{ site.author }}" /></a>
+ -->        </div>
         <div class="nav-logo">
           <div class="logo">
-            <h1><a href="/" rel="home">{{ site.name }}</a></h1>
+            <h1><a href="/" rel="home">Design Matters</a></h1>
           </div>
           <nav id="nav">
             <ul>
@@ -50,38 +57,6 @@
         </div>
         <div class="social-icons">
           <ul>
-            {% if site.twitter %}
-            <li>
-              <a href="{{ site.twitter }}" title="Twitter" target="_blank">
-                <i class="icon-twitter"></i>
-                <span class="hide-text">Twitter</span>
-              </a>
-            </li>
-            {% endif %}
-            {% if site.facebook %}
-            <li>
-              <a href="{{ site.facebook }}" title="Facebook" target="_blank">
-                <i class="icon-facebook"></i>
-                <span class="hide-text">Facebook</span>
-              </a>
-            </li>
-            {% endif %}
-            {% if site.googleplus %}
-            <li>
-              <a href="{{ site.googleplus }}?rel=author" title="Google+" target="_blank">
-                <i class="icon-google-plus"></i>
-                <span class="hide-text">Google Plus</span>
-              </a>
-            </li>
-            {% endif %}
-            {% if site.linkedin %}
-            <li>
-              <a href="{{ site.linkedin }}" title="LinkedIn" target="_blank">
-                <i class="icon-linkedin"></i>
-                <span class="hide-text">LinkedIn</span>
-              </a>
-            </li>
-            {% endif %}
             <li>
               <a href="{{ site.atom_url }}" title="RSS" target="_blank">
                 <i class="icon-rss"></i>
