@@ -42,14 +42,19 @@
  -->        </div>
         <div class="nav-logo">
           <div class="logo">
-            <h1><a href="/" rel="home">Design Matters</a></h1>
-            <h2>by Jisu & Chan</h2>
+            <h1><a href="/" rel="home">디자인 그리고 지수&찬</a></h1>
           </div>
           <nav id="nav">
             <ul>
               <li><a href="/">BLOG</a></li>
               <li><a href="http://jisuchan.com">WEDDING</a></li>
               <li><a href="/guestbook">GUEST BOOK</a></li>
+              <li>
+              <a href="{{ site.atom_url }}" title="RSS" target="_blank">
+                <i class="icon-rss"></i>
+                <span class="hide-text">RSS</span>
+              </a>
+            </li>
               {% if pages %}
               {% for page in pages %}
               <li><a href="{{ page.permalink }}" class="{{ set_active(page.permalink) }}">{{ page.title }}</a></li>
@@ -57,16 +62,6 @@
               {% endif %}
             </ul>
           </nav>
-        </div>
-        <div class="social-icons">
-          <ul>
-            <li>
-              <a href="{{ site.atom_url }}" title="RSS" target="_blank">
-                <i class="icon-rss"></i>
-                <span class="hide-text">RSS</span>
-              </a>
-            </li>
-          </ul>
         </div>
       </header>
 
